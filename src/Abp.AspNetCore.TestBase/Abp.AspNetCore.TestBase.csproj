@@ -21,17 +21,6 @@
     <ProjectReference Include="..\Abp.TestBase\Abp.TestBase.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Update="ConfigureAwait.Fody" Version="3.3.2" />
-    <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="9.0.5" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Update="Fody" Version="6.9.2">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-    <PackageReference Update="Microsoft.SourceLink.GitHub" Version="8.0.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="9.0.6" />
   </ItemGroup>
 </Project>
