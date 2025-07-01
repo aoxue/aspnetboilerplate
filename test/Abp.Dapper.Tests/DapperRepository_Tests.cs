@@ -7,7 +7,6 @@ using Abp.Dapper.Repositories;
 using Abp.Dapper.Tests.Entities;
 using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
-using DapperExtensions;
 using Shouldly;
 using Xunit;
 
@@ -144,7 +143,7 @@ namespace Abp.Dapper.Tests
 
                 productWithTenantId3FromDapper.ShouldBeNull();
 
-                Product p = await _productDapperRepository.FirstOrDefaultAsync(x => x.Status == Status.Active);
+                Product p = await _productDapperRepository.FirstOrDefaultAsync(x => x.IsDeleted == false);
                 p.ShouldNotBeNull();
 
                 using (_unitOfWorkManager.Current.SetTenantId(3))

@@ -1,6 +1,5 @@
+using Abp.Dapper_Extensions.Mapper;
 using Abp.EntityFrameworkCore.Dapper.Tests.Domain;
-
-using DapperExtensions.Mapper;
 
 namespace Abp.EntityFrameworkCore.Dapper.Tests.Dapper;
 

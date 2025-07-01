@@ -9,7 +9,7 @@ namespace Abp.Dapper.Tests.Entities
     [Table("Products")]
     public class Product : FullAuditedEntity, IMayHaveTenant
     {
-        protected Product()
+        public Product()
         {
         }
 

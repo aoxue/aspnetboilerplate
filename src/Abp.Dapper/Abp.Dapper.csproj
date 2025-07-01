@@ -21,7 +21,16 @@
     <PackageReference Include="Dapper" Version="2.1.66" />
     <PackageReference Include="System.Data.Common" Version="4.3.0" />
     <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
-    <PackageReference Include="DapperExtensions.DotnetCore" Version="1.0.1" />
+    <PackageReference Include="Slapper.AutoMapper" Version="2.0.5" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' != 'net461' and '$(TargetFramework)' != 'net461'">
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="2.19.110" />
+    <PackageReference Include="System.Reflection.Emit" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net461' and '$(OSTYPE)' != 'linux-gnu' and '$(OSTYPE)' != 'darwin18'">
+    <PackageReference Include="Oracle.ManagedDataAccess" version="19.11.0" targetFramework="net461" />
   </ItemGroup>
 
 </Project>
