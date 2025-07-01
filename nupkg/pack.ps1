@@ -40,8 +40,6 @@ $projects = (
     "Abp.ZeroCore",
     "Abp.ZeroCore.EntityFramework",
     "Abp.ZeroCore.EntityFrameworkCore",
-    "Abp.ZeroCore.IdentityServer4.vNext",
-    "Abp.ZeroCore.IdentityServer4.vNext.EntityFrameworkCore",
     "Abp.ZeroCore.NHibernate",
 	"Abp.ZeroCore.OpenIddict",
 	"Abp.ZeroCore.OpenIddict.EntityFrameworkCore",
