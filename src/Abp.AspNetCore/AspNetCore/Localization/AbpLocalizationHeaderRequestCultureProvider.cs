@@ -25,7 +25,7 @@ public class AbpLocalizationHeaderRequestCultureProvider : RequestCultureProvide
     /// The name of the header that contains the user's preferred culture information.
     /// Defaults to <see cref="CookieRequestCultureProvider.DefaultCookieName"/>.
     /// </summary>
-    public string HeaderName { get; set; } = CookieRequestCultureProvider.DefaultCookieName;
+    public static string HeaderName { get; set; } = ".AspNetCore.Culture";
 
     public AbpLocalizationHeaderRequestCultureProvider()
     {

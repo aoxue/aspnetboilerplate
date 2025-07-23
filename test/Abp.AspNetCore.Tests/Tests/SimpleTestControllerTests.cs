@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Abp.AspNetCore.App.Controllers;
 using Abp.AspNetCore.App.Models;
+using Abp.AspNetCore.Localization;
 using Abp.Events.Bus;
 using Abp.Events.Bus.Exceptions;
 using Abp.UI;
@@ -202,7 +203,7 @@ public class SimpleTestControllerTests : AppTestBase
     public async Task AbpLocalizationHeaderRequestCultureProvider_Test()
     {
         //Arrange
-        Client.DefaultRequestHeaders.Add(CookieRequestCultureProvider.DefaultCookieName, "c=it|uic=it");
+        Client.DefaultRequestHeaders.Add(AbpLocalizationHeaderRequestCultureProvider.HeaderName, "c=it|uic=it");
 
         var culture = await GetResponseAsStringAsync(
                 GetUrl<SimpleTestController>(
