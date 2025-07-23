@@ -1,7 +1,10 @@
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Abp.AspNetCore.App.Controllers;
+using Abp.AspNetCore.Localization;
 using Abp.AspNetCore.Mvc.Controllers;
+using Abp.Web.Models;
 using Shouldly;
 using Xunit;
 
@@ -95,5 +98,18 @@ public class AbpLocalizationControllerTests : AppTestBase
         // Assert
         response.Headers.Location.IsAbsoluteUri.ShouldBeFalse();
         response.Headers.Location.ToString().ShouldBe(expected);
+    }
+
+    [Fact]
+    public async Task Should_Change_AbpLocalizationHeaderRequestCultureProvider_HeaderName()
+    {
+        // Act
+        var response = await GetResponseAsObjectAsync<AjaxResponse<string>>(
+            GetUrl<LocalizationTestController>(
+                nameof(LocalizationTestController.GetAbpLocalizationHeaderRequestCultureProviderHeaderName)
+            )
+        );
+        
+        response.Result.ShouldBe("X-AspNetCore-Culture");
     }
 }

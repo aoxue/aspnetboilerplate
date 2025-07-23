@@ -4,6 +4,7 @@ using Abp.AspNetCore.TestBase;
 using Abp.Configuration.Startup;
 using Abp.Modules;
 using Abp.AspNetCore.Configuration;
+using Abp.AspNetCore.Localization;
 using Abp.AspNetCore.Mocks;
 using Abp.Auditing;
 using Abp.Configuration;
@@ -43,6 +44,8 @@ public class AppModule : AbpModule
         });
 
         Configuration.Modules.AbpWebCommon().WrapResultFilters.Add(new CustomWrapResultFilter());
+        
+        AbpLocalizationHeaderRequestCultureProvider.HeaderName = "X-AspNetCore-Culture";
     }
 
     public override void Initialize()
