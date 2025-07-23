@@ -1,4 +1,3 @@
-using Abp.IdentityServer4vNext;
 using Abp.Zero.EntityFrameworkCore;
 using Abp.ZeroCore.SampleApp.Core;
 using Abp.ZeroCore.SampleApp.Core.BookStore;
@@ -8,10 +7,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Abp.ZeroCore.SampleApp.EntityFramework;
 
-public class SampleAppDbContext : AbpZeroDbContext<Tenant, Role, User, SampleAppDbContext>, IAbpPersistedGrantDbContext
+public class SampleAppDbContext : AbpZeroDbContext<Tenant, Role, User, SampleAppDbContext>
 {
-    public DbSet<PersistedGrantEntity> PersistedGrants { get; set; }
-
     public DbSet<Advertisement> Advertisements { get; set; }
 
     public DbSet<Blog> Blogs { get; set; }
@@ -56,8 +53,6 @@ public class SampleAppDbContext : AbpZeroDbContext<Tenant, Role, User, SampleApp
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
-        modelBuilder.ConfigurePersistedGrantEntity();
 
         // EF property mapped directly to a field
 

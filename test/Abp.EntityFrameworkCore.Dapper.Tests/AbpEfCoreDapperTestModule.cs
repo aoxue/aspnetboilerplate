@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Transactions;
 using Abp.Configuration.Startup;
+using Abp.Dapper_Extensions;
+using Abp.Dapper_Extensions.Sql;
 using Abp.Dapper;
 using Abp.Domain.Repositories;
 using Abp.EntityFrameworkCore.Dapper.Tests.Domain;
@@ -12,7 +14,6 @@ using Abp.Modules;
 using Abp.Reflection.Extensions;
 using Abp.TestBase;
 using Castle.MicroKernel.Registration;
-using DapperExtensions.Sql;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
@@ -28,7 +29,7 @@ public class AbpEfCoreDapperTestModule : AbpModule
     {
         Configuration.UnitOfWork.IsolationLevel = IsolationLevel.Unspecified;
 
-        DapperExtensions.DapperExtensions.SqlDialect = new SqliteDialect();
+        DapperExtensions.SqlDialect = new SqliteDialect();
 
         Configuration.ReplaceService<IRepository<Post, Guid>>(() =>
         {
@@ -59,6 +60,6 @@ public class AbpEfCoreDapperTestModule : AbpModule
 
         IocManager.RegisterAssemblyByConvention(typeof(AbpEfCoreDapperTestModule).GetAssembly());
 
-        DapperExtensions.DapperExtensions.SetMappingAssemblies(new List<Assembly> { typeof(AbpEfCoreDapperTestModule).GetAssembly() });
+        DapperExtensions.SetMappingAssemblies(new List<Assembly> { typeof(AbpEfCoreDapperTestModule).GetAssembly() });
     }
 }
